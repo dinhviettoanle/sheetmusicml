@@ -1,27 +1,34 @@
-const xSize = 100;
-const ySize = 150;
+const XSIZE = 100;
+const YSIZE = 150;
 
 var is_learning = "";
+
+var sketches = [];
+
 
 
 function init_interaction(){
 
 	// ENTER KEY
-	document.addEventListener("keyup", function(event) {
-	if (event.keyCode === 13) {
-		save_sketch();
-		background(255);
-		createMusic();
-		}
+	window.addEventListener("keyup", function(event) {
+		if (event.keyCode === 13) {
+			save_sketch();
+			}
+
+		if (event.keyCode === 46) {
+			background(255);
+			image(img, 0, 0);
+			}
 	});
 
 	// Submit button
 	$('#submit_sketch').click(function(){
 		save_sketch();
 		background(255);
-		createMusic();
+		image(img, 0, 0);
 	});
 
+	// Select element
 	$('.example_buttons').on('click', function(event){
 		if(is_learning != event.target.id) {
 			is_learning = event.target.id;
@@ -50,15 +57,21 @@ function enhance(id){
 
 
 // ================= P5.js CODE ======================
+function preload() {
+  img = loadImage('../static/images/score.png');
+}
+
 function setup(){
-	cnv = createCanvas(xSize, ySize);
+	cnv = createCanvas(XSIZE, YSIZE);
 	cnv.parent("sketch");
 	background(255);
-	createMusic();
+	image(img, 0, 0);
+	// createMusic();
 }
 
 
 function draw() {
+	strokeWeight(2);
 	if (mouseIsPressed === true) {
 		line(mouseX, mouseY, pmouseX, pmouseY);
     }
