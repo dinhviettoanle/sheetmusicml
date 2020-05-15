@@ -75,7 +75,8 @@ function setup(){
 	cnv = createCanvas(XSIZE, YSIZE);
 	cnv.parent("sketch");
 	background(255);
-	image(img, 0, 0);
+	// image(img, 0, 0);
+	createMusic();
 
 	loadPixels();
 	for(y = 0 ; y < YSIZE ; y++){

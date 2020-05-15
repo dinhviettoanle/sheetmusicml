@@ -42,7 +42,8 @@ function save_sketch() {
 
 	$('#size_file').text(Math.round(total_size/1000).toString());
 	background(255);
-	image(img, 0, 0);
+	// image(img, 0, 0);
+	createMusic()
 
 }
 
