@@ -67,9 +67,6 @@ function enhance(id){
 
 
 // ================= P5.js CODE ======================
-function preload() {
-  img = loadImage('../static/images/score.png');
-}
 
 function setup(){
 	cnv = createCanvas(XSIZE, YSIZE);
