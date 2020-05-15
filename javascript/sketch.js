@@ -102,6 +102,6 @@ function createMusic() {
 	const gap = 20;
 	const begin = 10
 	for(var i = 0 ; i < 5 ; i++){
-		line(10, begin + i*gap + gap, xSize - 10, begin + i*gap + gap);
+		line(10, begin + i*gap + gap, XSIZE - 10, begin + i*gap + gap);
 	}
 }
