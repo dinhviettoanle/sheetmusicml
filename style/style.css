@@ -1,0 +1,29 @@
+*{
+    font-family: 'Verdana';
+}
+
+body {
+    background-color: gainsboro;
+}
+
+h1 {
+    font-size: 1.5em;
+    text-align:center;
+}
+
+#conteneur {
+    background-color: white;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    border: solid;
+}
+
+#info{
+    text-align: center;
+}
+
+canvas {
+    border-radius: 10px;
+}

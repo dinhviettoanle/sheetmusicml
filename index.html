@@ -1,0 +1,48 @@
+<!doctype html5>
+<html>
+   <head>
+
+   <meta charset="UTF-8">
+
+   <script language="javascript" type="text/javascript" src="javascript/p5.js"></script>
+   <script language="javascript" type="text/javascript" src="javascript/sketch.js"></script>
+
+   <link rel="stylesheet" href="style/style.css" >
+
+
+
+
+
+   </head>
+
+   <body>
+   <h1> Sheet music & Neural Network </h1>
+   <div id="conteneur" oncontextmenu=" event.preventDefault();"></div>
+
+   <div id="info">Prêt à entraîner</div>
+
+   <label for="select_item"> Élément à entrainer </label> <br>
+   <select name="select_item" id="select_item">
+   <optgroup label="Clef">
+   <option value="treble_clef">Clef de Sol</option>
+   <option value="bass_clef">Clef de Fa</option>
+   <option value="viola_clef">Clef d'Ut</option>
+   </optgroup>
+   <optgroup label="Notes">
+   <option value="c3">C3</option>
+   <option value="d3">D3</option>
+   <option value="e3">E3</option>
+   <option value="f3">F3</option>
+   <option value="g3">G3</option>
+   <option value="a3">A3</option>
+   <option value="b3">B3</option>
+   </optgroup>
+   </select>
+
+   <br><br><br>
+
+   <input type="checkbox" id="to_train" value="Entrainement"/>
+   <label for="to_train">Entraînement</label>
+
+   </body>
+</html>
