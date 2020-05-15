@@ -19,7 +19,7 @@ function init_interaction(){
 
 		if (event.keyCode === 46) {
 			background(255);
-			image(img, 0, 0);
+			createMusic();
 			}
 	});
 
