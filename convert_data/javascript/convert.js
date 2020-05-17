@@ -10,7 +10,7 @@ function askFilesJSON() {
          createConvertSection(json);
       },
       error : (json, err) => {
-         console.log("JSON FAILED");
+         console.error(".json imports failed");
          // console.log(json);
          $("#alert").show();
       }
@@ -52,7 +52,7 @@ function askFilesPNG() {
          createDisplaySection(json);
       },
       error : (json, err) => {
-         console.log("PNG FAILED");
+         console.error(".png imports failed");
          // console.log(json);
          $("#alert").show();
       }
