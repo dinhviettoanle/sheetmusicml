@@ -18,7 +18,8 @@
 
       <script>
       $(document).ready(function() {
-         init_interaction();
+         askFilesJSON();
+         askFilesPNG();
       })
 
       </script>
@@ -63,7 +64,7 @@
          <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Requis :</strong>
             <ul>
-               <li>Il faut que cette page tourne à partir d'un serveur (node, python.http, etc...). Sur une page statique, cela ne sert à rien.</li>
+               <li>Il faut que cette page tourne à partir d'un serveur (en particulier un serveur Node.js). Sur une page statique, cela ne sert à rien.</li>
                <li>Avoir des données json dans data/json pour les convertir en png</li>
                <li>Avoir des données png dans data/png pour les afficher</li>
             </ul>
@@ -81,7 +82,11 @@
 
                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                     <h5>Non convertis</h5>
+                     <div id="not_converted" class="mx-3"></div>
+                     <hr/>
+                     <h5>Convertis</h5>
+                     <div id="converted" class="mx-3"></div>
                   </div>
                </div>
             </div>
@@ -93,8 +98,7 @@
                </div>
 
                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                  <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  <div class="card-body" id="display">
                   </div>
                </div>
             </div>

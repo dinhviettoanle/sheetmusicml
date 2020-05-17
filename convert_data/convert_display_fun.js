@@ -9,10 +9,55 @@ var min_indexes = {
    'alto_clef' : 0,
 }
 
-function getFilesJSON(){
+
+
+module.exports =  {
+   getAllSets : getAllSets,
+   getAllPictures : getAllPictures
+};
+
+// ---------------- COM WITH SERVER -------------------------
+
+function getAllSets() {
    let files_json = fs.readdirSync('./data/json');
 
+   let rawdone = fs.readFileSync(`data/json/done.json`);
+   let done = JSON.parse(rawdone)['done'];
 
+   var sets = [];
+
+   for(const set of files_json){
+      if(set == "done.json"){
+         continue;
+      }
+      else if(!done.includes(set)){
+         sets.push({'set' : set, 'converted' : false});
+      }
+      else {
+         sets.push({'set' : set, 'converted' : true});
+      }
+
+   }
+   return sets;
+}
+
+
+function getAllPictures() {
+   let files_png = fs.readdirSync('./data/png');
+   var pngs = [];
+
+   files_png.forEach((item, i) => {
+      pngs.push({'element' : item.split("-")[0], 'name' : item});
+   });
+
+   return pngs;
+}
+
+
+// ------------------------ STANDALONE APP ------------------
+
+function convertAllSets(){
+   let files_json = fs.readdirSync('./data/json');
 
    let rawdone = fs.readFileSync(`data/json/done.json`);
    let done = JSON.parse(rawdone)['done'];
@@ -100,7 +145,7 @@ function createImage(data){
 
 function main(){
    setMinIndexes();
-   getFilesJSON();
+   convertAllSets();
 }
 
-main();
+// main();
