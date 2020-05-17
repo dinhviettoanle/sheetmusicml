@@ -57,9 +57,9 @@ function getAllPictures() {
 // ------------------------ STANDALONE APP ------------------
 
 function convertAllSets(){
-   let files_json = fs.readdirSync('./data/json');
+   let files_json = fs.readdirSync('../data/json');
 
-   let rawdone = fs.readFileSync(`data/json/done.json`);
+   let rawdone = fs.readFileSync(`../data/json/done.json`);
    let done = JSON.parse(rawdone)['done'];
 
    files_json.forEach((set, i) => {
@@ -71,7 +71,7 @@ function convertAllSets(){
 
    });
 
-   fs.writeFile(`data/json/done.json`, JSON.stringify({'done' : done}), (err) => {if (err) throw err;});
+   fs.writeFile(`../data/json/done.json`, JSON.stringify({'done' : done}), (err) => {if (err) throw err;});
 
    console.log(JSON.stringify(min_indexes, null, 2));
    console.log("--- DONE ---");
@@ -80,7 +80,7 @@ function convertAllSets(){
 
 
 function setMinIndexes(){
-   var files_png = fs.readdirSync('./data/png');
+   var files_png = fs.readdirSync('../data/png');
 
    files_png.forEach((file, i) => {
       var elt = file.split("-")[0];
@@ -94,7 +94,7 @@ function setMinIndexes(){
 
 
 function convert_one_set(set){
-   let rawdata = fs.readFileSync(`data/json/${set}`);
+   let rawdata = fs.readFileSync(`../data/json/${set}`);
    let data_one_file = JSON.parse(rawdata)['data'];
 
    data_one_file.forEach((item, i) => {
@@ -136,7 +136,7 @@ function createImage(data){
          });
       });
 
-      image.write(`./data/png/${file_name}.png`, (err) => {
+      image.write(`../data/png/${file_name}.png`, (err) => {
          if (err) throw err;
       });
    });

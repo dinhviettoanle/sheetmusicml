@@ -21,8 +21,14 @@
          askFilesJSON();
          askFilesPNG();
       })
-
       </script>
+
+      <style>
+         img {
+            border: solid .5px;
+            margin-bottom: 1em;
+         }
+      </style>
 
       <title> Partitions & ML </title>
 
@@ -61,10 +67,10 @@
 
 
       <section class="m-5">
-         <div class="alert alert-danger alert-dismissible fade show" role="alert">
+         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" style="display:none">
             <strong>Requis :</strong>
             <ul>
-               <li>Il faut que cette page tourne à partir d'un serveur (en particulier un serveur Node.js). Sur une page statique, cela ne sert à rien.</li>
+               <li>Il faut que cette page tourne à partir d'un serveur Node en local en lançant <a href="https://github.com/dinhviettoanle/sheetmusicml/blob/master/server.js" class="code">server.js</a>. Sur une page statique (donc sur github.io), cela ne sert à rien.</li>
                <li>Avoir des données json dans data/json pour les convertir en png</li>
                <li>Avoir des données png dans data/png pour les afficher</li>
             </ul>
