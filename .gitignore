@@ -1,3 +1,5 @@
 *.pyc
 run_server*
-
+node_modules
+struct.txt
+data

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+      <meta charset="UTF-8">
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="../static/style.css" >
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <script src="https://kit.fontawesome.com/e187f86b13.js" crossorigin="anonymous"></script>
+      <script src="javascript/convert.js"></script>
+
+
+      <script>
+      $(document).ready(function() {
+         init_interaction();
+      })
+
+      </script>
+
+      <title> Partitions & ML </title>
+
+   </head>
+
+   <body>
+      <div class="head">
+         <h1 class="mx-5 my-3"> Partitions manuscrites & Machine Learning </h1>
+      </div>
+
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+   			<span class="navbar-toggler-icon"></span>
+   		</button>
+
+   		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+            <ul class="navbar-nav">
+   				<li class="nav-item">
+   					<a class="nav-link" href="../index.html">Accueil</a>
+   				</li>
+
+               <li class="nav-item">
+   					<a class="nav-link" href="../input_data/input_data.html">Entrer des données</a>
+   				</li>
+
+               <li class="nav-item active">
+   					<a class="nav-link" href="#">Conversion et affichage</a>
+   				</li>
+            </ul>
+
+
+         </div>
+      </nav>
+
+
+      <section class="m-5">
+         <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Requis :</strong>
+            <ul>
+               <li>Il faut que cette page tourne à partir d'un serveur (node, python.http, etc...). Sur une page statique, cela ne sert à rien.</li>
+               <li>Avoir des données json dans data/json pour les convertir en png</li>
+               <li>Avoir des données png dans data/png pour les afficher</li>
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+
+         <div id="accordion">
+            <div class="card">
+               <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                     <h4 class="mb-0">Conversion</h4>
+               </div>
+
+               <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+               </div>
+            </div>
+
+
+            <div class="card">
+               <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                     <h4 class="mb-0">Affichage des données</h4>
+               </div>
+
+               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+
+
+      </section>
+
+
+      <footer>
+         <div class="footer fixed-bottom">
+            <div class="footer-copyright text-center py-3">
+               Repository <a href="https://github.com/dinhviettoanle/sheetmusicml">Github</a>
+            </div>
+         </div>
+      </footer>
+
+   </body>
+
+
+</html>

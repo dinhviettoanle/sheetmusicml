@@ -60,10 +60,22 @@ function byteLength(str) {
 }
 
 
+function leading_zeros(n){
+	return ('0' + n.toString()).slice(-2);
+}
 
 function send_data() {
 	const json_file_content = JSON.stringify({'data' : sketches, 'total' : sketches.length});
-	download("test.json", json_file_content);
+	var now = new Date(Date.now());
+	var date = leading_zeros(now.getDate());
+	var month = leading_zeros(now.getMonth());
+	var year = now.getFullYear();
+	var hours = leading_zeros(now.getHours());
+	var minutes = leading_zeros(now.getMinutes());
+	var seconds = leading_zeros(now.getSeconds());
+
+	var name_file = `${year}${month}${date}${hours}${minutes}${seconds}.json`;
+	download(name_file, json_file_content);
 	sketches = [];
 }
 

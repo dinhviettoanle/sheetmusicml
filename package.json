@@ -1,0 +1,24 @@
+{
+  "name": "sheetmusicml",
+  "version": "1.0.0",
+  "description": "[Interface pour faire apprendre des éléments](https://dinhviettoanle.github.io/sheetmusicml/)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinhviettoanle/sheetmusicml.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinhviettoanle/sheetmusicml/issues"
+  },
+  "homepage": "https://github.com/dinhviettoanle/sheetmusicml#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jimp": "^0.12.0"
+  }
+}

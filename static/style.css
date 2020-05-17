@@ -61,3 +61,15 @@ img {
 .fa-warning {
 	color : #550000;
 }
+
+.nav-item {
+	margin-left: 1em;
+}
+
+.card-header {
+	cursor: pointer;
+}
+
+.card {
+	margin-bottom: 1em;
+}
