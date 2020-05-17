@@ -1,7 +1,7 @@
 // --------------- CONVERT SECTION ---------------
 function askFilesJSON() {
    $.ajax({
-      url : "./convert",
+      url : "./getsets",
       type : "GET",
       dataType : "json",
       success : (json) => {
@@ -25,11 +25,34 @@ function createConvertSection(data){
          $('#converted').append(new_set);
       }
       else {
-         var new_set = `${item.set}<br>`;
-         $('#not_converted').append(new_set);
+         $('<a>')
+            .attr("href", "javascript:void(0);")
+            .attr('onclick', `ask_convert("${item.set}")`)
+            .html(`Convertir ${item.set} >> <br>`)
+            .appendTo("#not_converted");
       }
    });
 
+}
+
+
+function ask_convert(set){
+   $.ajax({
+      url : "./convertimage",
+      type : "POST",
+      data: `{"set": "${set}"}`,
+      contentType: 'application/json',
+      success : (json) => {
+         console.log("JSON SUCCESS");
+         // console.log(json);
+         document.location.reload(true);
+
+      },
+      error : (json, err) => {
+         console.error("Conversion failed");
+         console.log(json);
+      }
+   });
 }
 
 
@@ -38,7 +61,9 @@ function createConvertSection(data){
 const MAPPING_ID_FR = {
    'treble_clef' : "Clé de Sol",
    'bass_clef' : "Clé de Fa",
-   'alto_clef' : "Clé d'Ut"
+   'alto_clef' : "Clé d'Ut",
+   'eighth_rest' : "Soupir",
+   'rest' : "Silence"
 }
 
 function askFilesPNG() {

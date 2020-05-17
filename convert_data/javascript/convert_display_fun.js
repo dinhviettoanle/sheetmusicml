@@ -7,13 +7,16 @@ var min_indexes = {
    'treble_clef' : 0,
    'bass_clef' : 0,
    'alto_clef' : 0,
-}
+   'rest' : 0,
+   'eighth_rest' : 0,
 
+}
 
 
 module.exports =  {
    getAllSets : getAllSets,
-   getAllPictures : getAllPictures
+   getAllPictures : getAllPictures,
+   convertOneSet : convertOneSet
 };
 
 // ---------------- COM WITH SERVER -------------------------
@@ -21,7 +24,7 @@ module.exports =  {
 function getAllSets() {
    let files_json = fs.readdirSync('./data/json');
 
-   let rawdone = fs.readFileSync(`data/json/done.json`);
+   let rawdone = fs.readFileSync(`./data/json/done.json`);
    let done = JSON.parse(rawdone)['done'];
 
    var sets = [];
@@ -38,6 +41,7 @@ function getAllSets() {
       }
 
    }
+
    return sets;
 }
 
@@ -53,34 +57,29 @@ function getAllPictures() {
    return pngs;
 }
 
+// {"done" : []}
 
-// ------------------------ STANDALONE APP ------------------
+function convertOneSet(name){
+   setMinIndexes();
 
-function convertAllSets(){
-   let files_json = fs.readdirSync('../data/json');
-
-   let rawdone = fs.readFileSync(`../data/json/done.json`);
+   let rawdone = fs.readFileSync(`./data/json/done.json`);
    let done = JSON.parse(rawdone)['done'];
 
-   files_json.forEach((set, i) => {
-      if(!done.includes(set) && set != "done.json"){
-         convert_one_set(set);
-         done.push(set);
-         console.log(`${set} is converted`)
-      }
+   convert_one_set(name);
+   done.push(name);
 
-   });
-
-   fs.writeFile(`../data/json/done.json`, JSON.stringify({'done' : done}), (err) => {if (err) throw err;});
+   fs.writeFileSync(`./data/json/done.json`, JSON.stringify({'done' : done}), (err) => {if (err) throw err;});
 
    console.log(JSON.stringify(min_indexes, null, 2));
-   console.log("--- DONE ---");
 
 }
 
 
+// ------------------------ STANDALONE APP ------------------
+
+
 function setMinIndexes(){
-   var files_png = fs.readdirSync('../data/png');
+   var files_png = fs.readdirSync('./data/png');
 
    files_png.forEach((file, i) => {
       var elt = file.split("-")[0];
@@ -94,7 +93,7 @@ function setMinIndexes(){
 
 
 function convert_one_set(set){
-   let rawdata = fs.readFileSync(`../data/json/${set}`);
+   let rawdata = fs.readFileSync(`./data/json/${set}`);
    let data_one_file = JSON.parse(rawdata)['data'];
 
    data_one_file.forEach((item, i) => {
@@ -125,9 +124,13 @@ function createImage(data){
    min_index = min_indexes[element] + 1;
    var file_name = element + "-" +  min_index.toString();
 
+   if(isNaN(min_index)){
+      console.log(file_name);
+   }
+
    min_indexes[element]++;
 
-   let image = new Jimp(WIDTH, HEIGHT, function (err, image) {
+   let image = new Jimp(WIDTH, HEIGHT, async function (err, image) {
       if (err) throw err;
 
       image_data.forEach((row, y) => {
@@ -136,16 +139,11 @@ function createImage(data){
          });
       });
 
-      image.write(`../data/png/${file_name}.png`, (err) => {
+      await image.writeAsync(`./data/png/${file_name}.png`, (err) => {
          if (err) throw err;
       });
    });
 
-}
-
-function main(){
-   setMinIndexes();
-   convertAllSets();
 }
 
 // main();

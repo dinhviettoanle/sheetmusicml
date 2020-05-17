@@ -1,16 +1,24 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 const port = 8000;
 
-var cvtdisp = require('./convert_data/convert_display_fun');
+var cvtdisp = require('./convert_data/javascript/convert_display_fun');
 
 app.use(express.static('.'));
+app.use(bodyParser.json());
 
 
-app.get('/convert_data/convert', (req, res) => {
+
+app.get('/convert_data/getsets', (req, res) => {
    var sets = cvtdisp.getAllSets();
    console.log("Send JSON files");
    res.send(sets);
+});
+
+app.post('/convert_data/convertimage', (req, res) => {
+   cvtdisp.convertOneSet(req.body.set);
+   res.send({"status" : 200});
 });
 
 app.get('/convert_data/display', (req, res) => {
