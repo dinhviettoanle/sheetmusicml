@@ -14,9 +14,11 @@ function save_sketch() {
 	for(y = 0 ; y < YSIZE ; y++){
 		for(x = 0 ; x < XSIZE ; x++){
 			var index = (x + y * XSIZE) * 4;
-			this_sketch.push(pixels[index + 1]);
+			this_sketch.push(pixels[index + 3]);
 		}
 	}
+
+	// saveCanvas(cnv, 'image', 'png');
 
 
 	// Verify that the sketch is not empty
@@ -41,9 +43,7 @@ function save_sketch() {
 	total_size += byteLength(JSON.stringify(this_sketch));
 
 	$('#size_file').text(Math.round(total_size/1000).toString());
-	background(255);
-	// image(img, 0, 0);
-	createMusic()
+	clear();
 
 }
 

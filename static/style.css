@@ -38,8 +38,7 @@
 
 .example_buttons:hover {
 	text-align: center;
-	width: 110px;
-	height: 165px;
+	-webkit-transform:scale(1.1);
 	cursor: pointer;
 }
 

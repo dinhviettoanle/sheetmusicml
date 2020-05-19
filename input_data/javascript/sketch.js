@@ -7,6 +7,8 @@ var prec_is_learning = "";
 var sketches = [];
 var empty_sketch = []
 
+var cnv = null;
+
 
 
 function init_interaction(){
@@ -18,8 +20,8 @@ function init_interaction(){
 			}
 
 		if (event.keyCode === 46) {
-			background(255);
-			createMusic();
+			console.log("Hello");
+			clear();
 			}
 	});
 
@@ -52,18 +54,17 @@ function enhance(id){
 	if(prec_is_learning != ""){
 		var parent_prec = $('#' + prec_is_learning).parent();
 		parent_prec.css("background-color", "");
-		parent_prec.css("width", "");
-		parent_prec.css("height", "");
+		parent_prec.css("-webkit-transform", "");
 	}
 
 	if(id == ""){return;}
 
 	var parent = $('#' + id).parent();
 	parent.css("background-color", "rgba(0,150,0,0.2)");
-	parent.css("width", "110px");
-	parent.css("height", "165px");
+	parent.css("-webkit-transform", "scale(1.1)");
 
 }
+
 
 
 // ================= P5.js CODE ======================
@@ -71,9 +72,9 @@ function enhance(id){
 function setup(){
 	cnv = createCanvas(XSIZE, YSIZE);
 	cnv.parent("sketch");
-	background(255);
+	background('rgba(255, 255, 255, 0)');
 	// image(img, 0, 0);
-	createMusic();
+	// createMusic();
 
 	loadPixels();
 	for(y = 0 ; y < YSIZE ; y++){

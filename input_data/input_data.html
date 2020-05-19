@@ -33,6 +33,14 @@
             right: 0;
             margin: auto;
          }
+
+         #score {
+            z-index: -5;
+            position: absolute;
+            top : -140px;
+            left : 0px;
+         }
+
       </style>
 
       <title> Partitions & ML </title>
@@ -64,6 +72,10 @@
                <li class="nav-item">
    					<a class="nav-link" href="../convert_data/convert_data.html">Conversion et affichage</a>
    				</li>
+
+               <li class="nav-item">
+   					<a class="nav-link" href="../test_nn/test_nn.html">Tester le NN</a>
+   				</li>
             </ul>
 
 
@@ -82,7 +94,7 @@
       </div>
 
       <section class="m-5">
-         <div class="row">
+         <div class="row" id="main_container">
 
             <!-- ELTS SELECTING ZONE -->
             <div class="col-9" id="training_elements">
@@ -148,16 +160,14 @@
 
 
             <!-- SKETCH ZONE -->
-            <div class="col-3 text-center">
+            <div class="col-3 text-center" id="sketch_zone">
                <h3 class="mb-3">Zone de dessin</h3>
                <div id="sketch"></div>
+               <img src="images/score.png" id="score"/>
                <br/>
                <button type="button" id="submit_sketch" class="btn btn-dark btn-sm">Ajouter</button>
                <br/>
                <em><small>Ou appuyez sur ENTRÉE <br/> ou sur SUPPR pour supprimer</small></em>
-
-
-
             </div>
 
          </div>

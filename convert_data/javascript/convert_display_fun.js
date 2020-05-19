@@ -113,7 +113,7 @@ function createImage(data){
       var line = [];
       for(var x = 0 ; x < WIDTH ; x++){
          var bw_byte = sketch[index];
-         var color = Jimp.rgbaToInt(bw_byte, bw_byte, bw_byte, 255);
+         var color = Jimp.rgbaToInt(255-bw_byte, 255-bw_byte, 255-bw_byte, 255);
          line.push(color);
          index++;
       }
@@ -130,19 +130,22 @@ function createImage(data){
 
    min_indexes[element]++;
 
-   let image = new Jimp(WIDTH, HEIGHT, async function (err, image) {
-      if (err) throw err;
 
-      image_data.forEach((row, y) => {
+
+   let image = new Jimp(WIDTH, HEIGHT);
+
+   image_data.forEach((row, y) => {
          row.forEach((color, x) => {
             image.setPixelColor(color, x, y);
+
          });
       });
 
-      await image.writeAsync(`./data/png/${file_name}.png`, (err) => {
-         if (err) throw err;
-      });
+   image.write(`./data/png/${file_name}.png`, (err) => {
+      if (err) throw err;
    });
+
+
 
 }
 
