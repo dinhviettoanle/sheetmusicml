@@ -4,12 +4,20 @@ const WIDTH = 100;
 const HEIGHT = 150;
 
 var min_indexes = {
-   'treble_clef' : 0,
-   'bass_clef' : 0,
    'alto_clef' : 0,
-   'rest' : 0,
+   'bass_clef' : 0,
+   'crotchet_inverted' : 0,
+   'crotchet_normal' : 0,
    'eighth_rest' : 0,
-
+   'halfnote_inverted' : 0,
+   'halfnote_normal' : 0,
+   'quaver_inverted' : 0,
+   'quaver_normal' : 0,
+   'rest' : 0,
+   'semiquaver_inverted' : 0,
+   'semiquaver_normal' : 0,
+   'sixteenth_rest' : 0,
+   'treble_clef' : 0,
 }
 
 
@@ -24,16 +32,13 @@ module.exports =  {
 function getAllSets() {
    let files_json = fs.readdirSync('./data/json');
 
-   let rawdone = fs.readFileSync(`./data/json/done.json`);
+   let rawdone = fs.readFileSync(`./data/done.json`);
    let done = JSON.parse(rawdone)['done'];
 
    var sets = [];
 
    for(const set of files_json){
-      if(set == "done.json"){
-         continue;
-      }
-      else if(!done.includes(set)){
+      if(!done.includes(set)){
          sets.push({'set' : set, 'converted' : false});
       }
       else {
@@ -62,13 +67,13 @@ function getAllPictures() {
 function convertOneSet(name){
    setMinIndexes();
 
-   let rawdone = fs.readFileSync(`./data/json/done.json`);
+   let rawdone = fs.readFileSync(`./data/done.json`);
    let done = JSON.parse(rawdone)['done'];
 
    convert_one_set(name);
    done.push(name);
 
-   fs.writeFileSync(`./data/json/done.json`, JSON.stringify({'done' : done}), (err) => {if (err) throw err;});
+   fs.writeFileSync(`./data/done.json`, JSON.stringify({'done' : done}), (err) => {if (err) throw err;});
 
    console.log(JSON.stringify(min_indexes, null, 2));
 

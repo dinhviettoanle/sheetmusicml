@@ -59,11 +59,20 @@ function ask_convert(set){
 // --------------- DISPLAY SECTION ---------------
 
 const MAPPING_ID_FR = {
-   'treble_clef' : "Clé de Sol",
-   'bass_clef' : "Clé de Fa",
    'alto_clef' : "Clé d'Ut",
-   'eighth_rest' : "Soupir",
-   'rest' : "Silence"
+   'bass_clef' : "Clé de Fa",
+   'crotchet_inverted' : "Noire inversée",
+   'crotchet_normal' : "Noire",
+   'eighth_rest' : "Demi-soupir",
+   'halfnote_inverted' : "Blanche inversée",
+   'halfnote_normal' : "Blanche",
+   'quaver_inverted' : "Croche inversée",
+   'quaver_normal' : "Croche",
+   'rest' : "Soupir",
+   'semiquaver_inverted' : "Double croche inversée",
+   'semiquaver_normal' : "Double croche",
+   'sixteenth_rest' : "Quart de soupir",
+   'treble_clef' : "Clé de Sol",
 }
 
 function askFilesPNG() {
@@ -96,6 +105,8 @@ function createDisplaySection(data) {
             .text(MAPPING_ID_FR[item.element])
             .appendTo(`#display`)
             .addClass("m-3");
+
+            $('<hr/>').appendTo(`#display`);
 
          $('<div/>')
             .attr('id', item.element)
