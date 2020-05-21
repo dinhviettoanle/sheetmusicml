@@ -62,96 +62,129 @@
          TODO Faire un scroll sur les données
          TODO Faire les notes avec la barre en haut ou en bas
          -->
-         <h3>Comment entrer des données ?</h3>
-         <p>
-            <ul>
-               <li>Se rendre sur la page <a href="input_data/input_data.html">Entrer des données</a></li>
-               <li>On a alors deux cadres : une zone qui regroupe les éléments que l'on souhaite entraîner et une zone de dessin</li>
-               <li>Sélectionner un élément à entraîner en cliquant sur l'image le représentant qui devrait alors se mettre en surbrillance</li>
-               <li>Dessiner cet élément dans la zone de dessin</li>
-               <li>Le valider soit avec la touche ENTRÉE soit en cliquant sur Ajouter. En cas d'erreur, appuyer sur SUPPR pour recommencer le dessin</li>
-               <li>Réitérer le processus sur de multiples dessins et sur d'autres éléments jusqu'à ce qu'on en ait marre</li>
-            </ul>
-            <br/>
-            Une fois un niveau de satisfaction atteint, on peut "sauvegarder" les données <small>(parce que j'ai pas d'argent pour qu'un serveur héberge ces pages et rentrer directement les données dans ce serveur...)</small>
-            <ul>
-               <li>Cliquer sur "Télécharger les données"</li>
-               <li>Un fichier au nom <span class="code">{annee}{mois}{data}{heure}{minute}{seconde}.json</span> devrait normalement se télécharger</li>
-               <li>M'envoyer ce fichier par n'importe quel moyen de communication</li>
-            </ul>
-         </p>
 
-         <hr/>
-         <br/>
-
-         <h3>À quoi est-ce que cela servira ?</h3>
-         <p class="my-3 mx-4">
-            À patir d'un grand nombre de dessins d'élements musicaux, on peut le donner à manger à un réseau de neurones qui, après quelques lignes de code et quelques minutes (heures ?) d'entraînement, devrait (normalement) déterminer à partir d'un nouveau dessin (ou de l'entrée manuscrite d'un utilisateur) ce qu'est cet élément. Ce processus est appelé Deep Learning.
-            <br/><br/>
-            Par exemple, supposons que nous arrivions sur une autre planète et qu'on nous donne un tableau de traduction comme ça :
-            <div class="row">
-               <div class="col-5">
-
-
-               <table class="table table-bordered">
-                  <thead class="thead-dark">
-                        <tr>
-                           <th class="col-3">Concept abstrait</th>
-                           <th>Traduction dans la langue locale <small>(mots choisis au pif)</small></th>
-                        </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td><i class="fas fa-star"></i></td>
-                        <td>Upugribn</td>
-                     </tr>
-                     <tr>
-                        <td><i class="fas fa-map-marker"></i></td>
-                        <td>Upugribn</td>
-                     </tr>
-                     <tr>
-                        <td><i class="far fa-square"></i></td>
-                        <td>Letfriupb</td>
-                     </tr>
-                     <tr>
-                        <td><i class="fas fa-square"></i></td>
-                        <td>Upugribn</td>
-                     </tr>
-                     <tr>
-                        <td><i class="far fa-circle"></i></td>
-                        <td>Letfriupb</td>
-                     </tr>
-                  </tbody>
-               </table>
-               </div>
-
-               <div class="col-6 d-flex align-items-center ">
-                  <div class="border col-12 m-3 p-3">
-                     La question est : <strong>Comment traduire  <i class="fas fa-bookmark"></i> ?</strong><br/>
-                     <span class="mx-5">Réponse (pas très compliquée) : <span class="code" id="answer"></span></span>
-                  </div>
-               </div>
+         <!-- CARD HOW TO -->
+         <div class="card">
+            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+               <h3>Comment entrer des données ?</h3>
             </div>
 
-            On a donc eu :
-            <ul>
-               <li>Une étape d'apprentissage qui se décompose en deux :
-                  <ul>
-                     <li>
-                        On apprend le lien entre l'entrée <em>(le concept abstrait / le dessin du truc musical)</em> et la sortie attendue <em>(la traduction / le nom du truc musical)</em>, et ce, répété sur un certain nombre de fois <em>(la longueur de la table / le nombre de dessins récupérés)</em>
-                     </li>
-                     <li>
-                        On repère les particularité des différents éléments attendus <em>(le caractère plein ou creux de l'icône / l'agencement des pixels entre eux pour former le truc musical)</em>
-                     </li>
-                  </ul>
-               </li>
-               <li>
-                  Une étape d'évaluation d'un nouvel élément non connu <em>(la nouvelle icône / un nouveau dessin de truc musical)</em> et à partir de ce qu'on sait des particularités des différents concepts, la déduction de ce qu'est cet nouvel élément.
-               </li>
-            </ul>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+               <div class="card-body">
+                  <p>
+                     <ul>
+                        <li>Se rendre sur la page <a href="input_data/input_data.html">Entrer des données</a></li>
+                        <li>On a alors deux cadres : une zone qui regroupe les éléments que l'on souhaite entraîner et une zone de dessin</li>
+                        <li>Sélectionner un élément à entraîner en cliquant sur l'image le représentant qui devrait alors se mettre en surbrillance</li>
+                        <li>Dessiner cet élément dans la zone de dessin</li>
+                        <li>Le valider soit avec la touche ENTRÉE soit en cliquant sur Ajouter. En cas d'erreur, appuyer sur SUPPR pour recommencer le dessin</li>
+                        <li>Réitérer le processus sur de multiples dessins et sur d'autres éléments jusqu'à ce qu'on en ait marre</li>
+                     </ul>
+                     <br/>
+                     Une fois un niveau de satisfaction atteint, on peut "sauvegarder" les données <small>(parce que j'ai pas d'argent pour qu'un serveur héberge ces pages et rentrer directement les données dans ce serveur...)</small>
+                     <ul>
+                        <li>Cliquer sur "Télécharger les données"</li>
+                        <li>Un fichier au nom <span class="code">{annee}{mois}{data}{heure}{minute}{seconde}.json</span> devrait normalement se télécharger</li>
+                        <li>M'envoyer ce fichier par n'importe quel moyen de communication</li>
+                     </ul>
+                  </p>
+               </div>
+            </div>
+         </div>
 
-            Voilà, c'est pas plus compliqué que ça l'entraînement d'un réseau de neurones.
-         </p>
+         <!-- CARD EXPLAIN -->
+         <div class="card">
+            <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+               <h3>À quoi est-ce que cela servira ?</h3>
+            </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+               <div class="card-body" id="display">
+                  <p class="my-3 mx-4">
+                     À patir d'un grand nombre de dessins d'élements musicaux, on peut le donner à manger à un réseau de neurones qui, après quelques lignes de code et quelques minutes (heures ?) d'entraînement, devrait (normalement) déterminer à partir d'un nouveau dessin (ou de l'entrée manuscrite d'un utilisateur) ce qu'est cet élément. Ce processus est appelé Deep Learning.
+                     <br/><br/>
+                     Par exemple, supposons que nous arrivions sur une autre planète et qu'on nous donne un tableau de traduction comme ça :
+                     <div class="row">
+                        <div class="col-5">
+
+
+                        <table class="table table-bordered">
+                           <thead class="thead-dark">
+                                 <tr>
+                                    <th class="col-3">Concept abstrait</th>
+                                    <th>Traduction dans la langue locale <small>(mots choisis au pif)</small></th>
+                                 </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td><i class="fas fa-star"></i></td>
+                                 <td>Upugribn</td>
+                              </tr>
+                              <tr>
+                                 <td><i class="fas fa-map-marker"></i></td>
+                                 <td>Upugribn</td>
+                              </tr>
+                              <tr>
+                                 <td><i class="far fa-square"></i></td>
+                                 <td>Letfriupb</td>
+                              </tr>
+                              <tr>
+                                 <td><i class="fas fa-square"></i></td>
+                                 <td>Upugribn</td>
+                              </tr>
+                              <tr>
+                                 <td><i class="far fa-circle"></i></td>
+                                 <td>Letfriupb</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        </div>
+
+                        <div class="col-6 d-flex align-items-center ">
+                           <div class="border col-12 m-3 p-3">
+                              La question est : <strong>Comment traduire  <i class="fas fa-bookmark"></i> ?</strong><br/>
+                              <span class="mx-5">Réponse (pas très compliquée) : <span class="code" id="answer"></span></span>
+                           </div>
+                        </div>
+                     </div>
+                     <br/>
+                     On a donc eu :
+                     <ul>
+                        <li>Une étape d'apprentissage qui se décompose en deux :
+                           <ul>
+                              <li>
+                                 On apprend le lien entre l'entrée <em>(le concept abstrait / le dessin du truc musical)</em> et la sortie attendue <em>(la traduction / le nom du truc musical)</em>, et ce, répété sur un certain nombre de fois <em>(la longueur de la table / le nombre de dessins récupérés)</em>
+                              </li>
+                              <li>
+                                 On repère les particularité des différents éléments attendus <em>(le caractère plein ou creux de l'icône / l'agencement des pixels entre eux pour former le truc musical)</em>
+                              </li>
+                           </ul>
+                        </li>
+                        <li>
+                           Une étape d'évaluation d'un nouvel élément non connu <em>(la nouvelle icône / un nouveau dessin de truc musical)</em> et à partir de ce qu'on sait des particularités des différents concepts, la déduction de ce qu'est cet nouvel élément.
+                        </li>
+                     </ul>
+
+                     Voilà, c'est pas plus compliqué que ça l'entraînement d'un réseau de neurones.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         <!-- CARD TEST -->
+         <div class="card">
+            <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+               <h3>Comment mettre à l'épreuve le réseau de neurones ?</h3>
+            </div>
+
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+               <div class="card-body">
+                  <p>
+                     <span class="code">Section en cours de développement</span>
+                  </p>
+               </div>
+            </div>
+         </div>
       </section>
 
 
