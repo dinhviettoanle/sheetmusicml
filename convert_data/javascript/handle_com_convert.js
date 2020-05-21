@@ -45,7 +45,7 @@ function ask_convert(set){
       success : (json) => {
          console.log("JSON SUCCESS");
          // console.log(json);
-         // document.location.reload(true);
+         location.reload();
 
       },
       error : (json, err) => {

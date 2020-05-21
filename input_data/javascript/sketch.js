@@ -46,6 +46,7 @@ function init_interaction(){
 	// Send data
 	$('#send_button').click(function(){
 		send_data();
+		
 	});
 
 }
