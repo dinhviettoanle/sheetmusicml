@@ -20,7 +20,6 @@ function init_interaction(){
 			}
 
 		if (event.keyCode === 46) {
-			console.log("Hello");
 			clear();
 			}
 	});
@@ -46,7 +45,7 @@ function init_interaction(){
 	// Send data
 	$('#send_button').click(function(){
 		send_data();
-		
+
 	});
 
 }

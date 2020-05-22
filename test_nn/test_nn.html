@@ -13,8 +13,42 @@
    	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <script src="https://kit.fontawesome.com/e187f86b13.js" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+      <script src="javascript/sketch.js"></script>
 
       <title> Partitions & ML </title>
+
+      <script>
+      $(document).ready(function() {
+         init_interaction();
+      })
+      </script>
+
+      <style>
+      img {
+         max-height: 90%;
+         max-width: 90%;
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         margin: auto;
+      }
+
+      #score {
+         z-index: -5;
+         position: absolute;
+         top : -50px;
+         left : 0px;
+      }
+
+      .box_result {
+         margin: 1em;
+         padding: 0.5em;
+         height: 85%;
+      }
+      </style>
 
    </head>
 
@@ -53,7 +87,30 @@
 
 
       <section class="m-5">
-         Hello
+         <div class="row">
+
+            <div class="col-3 text-center" id="sketch_zone">
+               <h3 class="mb-3">Zone de dessin</h3>
+               <div id="sketch"></div>
+               <img src="images/score.png" id="score"/>
+               <br/>
+               <button type="button" id="submit_sketch" class="btn btn-dark btn-sm" disabled>Détecter</button>
+               <br/>
+               <em><small>Ou appuyez sur ENTRÉE <br/> ou sur SUPPR pour effacer</small></em>
+            </div>
+
+            <div class="col-9 row">
+               <div class="card col-3 p-0 mx-2">
+                  <div class="card-header"><h5>Élement détecté</h5></div>
+                  <div class="card-body"><span class="code" id="element_detected">Chargement...</span></div>
+               </div>
+
+               <div class="card col-3 p-0 mx-2">
+                  <div class="card-header"><h5>Note détectée</h5></div>
+                  <div class="card-body" id="note_detected"></div>
+               </div>
+            </div>
+         </div>
       </section>
 
 
