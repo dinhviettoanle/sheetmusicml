@@ -4,6 +4,7 @@ var app = express();
 const port = 8000;
 
 var cvtdisp = require('./convert_data/javascript/convert_display_fun');
+var trainnn = require('./train_nn/javascript/train_nn');
 
 app.use(express.static('.'));
 app.use(bodyParser.json());
@@ -23,6 +24,12 @@ app.post('/convert_data/convertimage', (req, res) => {
 
 app.get('/convert_data/display', (req, res) => {
    var imgs = cvtdisp.getAllPictures();
+   console.log("Send PNG files");
+   res.send(imgs);
+});
+
+app.get('/train_nn/gettrainingdata', (req, res) => {
+   var imgs = trainnn.getData();
    console.log("Send PNG files");
    res.send(imgs);
 });
